@@ -7,73 +7,77 @@ class DiceyTheme {
     bodyLarge: GoogleFonts.openSans(
       fontSize: 14.0,
       fontWeight: FontWeight.w700,
-      color: Colors.white,
+      color: Colors.black,
     ),
     displayLarge: GoogleFonts.openSans(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Colors.black,
     ),
     displayMedium: GoogleFonts.openSans(
       fontSize: 21.0,
       fontWeight: FontWeight.w700,
-      color: Colors.white,
+      color: Colors.black,
     ),
     displaySmall: GoogleFonts.openSans(
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
-      color: Colors.white,
+      color: Colors.black,
     ),
     titleLarge: GoogleFonts.openSans(
       fontSize: 20.0,
       fontWeight: FontWeight.w600,
-      color: Colors.red,
+      color: const Color(0xffff00ff),
     ),
   );
 
   static TextTheme darkTextTheme = TextTheme(
-    bodyLarge: GoogleFonts.openSans(
-      fontSize: 14.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.white,
-    ),
-    displayLarge: GoogleFonts.openSans(
-      fontSize: 32.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.white,
-    ),
-    displayMedium: GoogleFonts.openSans(
-      fontSize: 21.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.white,
-    ),
-    displaySmall: GoogleFonts.openSans(
-      fontSize: 16.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
-    titleLarge: GoogleFonts.openSans(
-      fontSize: 20.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
+      bodyLarge: GoogleFonts.openSans(
+        fontSize: 14.0,
+        fontWeight: FontWeight.w700,
+        color: Colors.white,
+      ),
+      displayLarge: GoogleFonts.openSans(
+        fontSize: 32.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+      displayMedium: GoogleFonts.openSans(
+        fontSize: 21.0,
+        fontWeight: FontWeight.w700,
+        color: Colors.white,
+      ),
+      displaySmall: GoogleFonts.openSans(
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
+      titleLarge: GoogleFonts.openSans(
+          fontSize: 20.0,
+          fontWeight: FontWeight.w600,
+          color: const Color(0xffff00ff),
+      ),
   );
+
 
   static ThemeData light() {
     return ThemeData(
       brightness: Brightness.light,
+      primaryColor: const Color(0xffff00ff),
+      colorScheme: const ColorScheme.light(
+        primary: Color(0xffff00ff),
+        secondary: Colors.blue,
+      ),
       listTileTheme: const ListTileThemeData(
         contentPadding: EdgeInsets.all(8.0),
         horizontalTitleGap: 16.0,
         shape: RoundedRectangleBorder(
-
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         selectedColor: Colors.white,
         selectedTileColor: Colors.white,
         tileColor: Colors.black26,
         style: ListTileStyle.drawer,
-
       ),
       outlinedButtonTheme: const OutlinedButtonThemeData(
         style: ButtonStyle(
@@ -86,24 +90,21 @@ class DiceyTheme {
               color: Colors.black,
             ),
           ),
-
           side: MaterialStatePropertyAll(
-              BorderSide(
-                color: Colors.black38,
-              ),),
+            BorderSide(
+              color: Colors.black38,
+            ),
+          ),
           elevation: MaterialStatePropertyAll(2),
-
         ),
-
       ),
       drawerTheme: DrawerThemeData(
-
         endShape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.horizontal(left: Radius.circular(16.0), right: Radius.zero),
-            side: BorderSide(
-              color: Colors.white,
-              // width: 2.0,
-            ),
+          borderRadius: BorderRadius.horizontal(left: Radius.circular(16.0), right: Radius.zero),
+          side: BorderSide(
+            color: Colors.white,
+            // width: 2.0,
+          ),
         ),
         backgroundColor: Colors.white,
         shadowColor: Colors.grey.shade100,
@@ -114,11 +115,11 @@ class DiceyTheme {
         backgroundColor: Colors.white,
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        extendedPadding: const EdgeInsets.all(16),
-        foregroundColor: Colors.red,
-        backgroundColor: Colors.white,
+        extendedPadding: const EdgeInsets.all(32),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color(0xffff00ff),
         extendedIconLabelSpacing: 32.0,
-        splashColor: Colors.red.shade200,
+        splashColor: const Color(0xffffffff),
         extendedTextStyle: GoogleFonts.openSans(
           fontSize: 16.0,
           fontWeight: FontWeight.w600,
@@ -133,16 +134,21 @@ class DiceyTheme {
     );
   }
 
-  static ThemeData dark() {
+  ThemeData dark() {
     return ThemeData(
       brightness: Brightness.dark,
+      primaryColor: const Color(0xffff00ff),
+      colorScheme: const ColorScheme.dark(
+        primary: Color(0xffff00ff),
+        secondary: Colors.blue,
+      ),
       appBarTheme: AppBarTheme(
         foregroundColor: Colors.white,
         backgroundColor: Colors.grey[900],
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xffff00ff),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: Colors.green,
@@ -150,4 +156,5 @@ class DiceyTheme {
       textTheme: darkTextTheme,
     );
   }
+
 }

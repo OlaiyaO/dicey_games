@@ -7,7 +7,7 @@ import 'description_model.dart';
 
 class Romance extends StatefulWidget {
 
-  final String romanceRoute = '/romance';
+  static const String romanceRoute = '/romance';
   final String romanceHeading = 'ROMANCE';
 
   const Romance({super.key});

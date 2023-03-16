@@ -1,6 +1,12 @@
+import 'package:dicey/components/dicey_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'components/list_tile_model.dart';
+import 'dice_type/romance.dart';
+import 'dice_type/foreplay.dart';
+import 'dice_type/sex_styles.dart';
+
+
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -8,9 +14,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.red,
       appBar: AppBar(
-        backgroundColor: Colors.white70,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: const Center(
           child: Text('Couple\'s Games'),
         ),
@@ -24,22 +29,37 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               children: const [
                 ListTileModel(
-                    tileAvatar: '/romance', description: 'Romance',),
+                  tileAvatar: Romance.romanceRoute,
+                  description: 'Romance',
+                ),
                 ListTileModel(
-                    tileAvatar: '/foreplay', description: 'Foreplay',),
+                  tileAvatar: Foreplay.foreplayRoute,
+                  description: 'Foreplay',
+                ),
                 ListTileModel(
-                    tileAvatar: '/sexStyles', description: 'Sex',),
+                  tileAvatar: SexStyles.sexStylesRoute,
+                  description: 'Sex',
+                ),
               ],
             ),
           ),
           Expanded(
-              flex: 1,
-              child: OutlinedButton(
-                onPressed: () {
-                  SystemNavigator.pop();
-                },
-                child: const Text('Quit App'),
-              ))
+            flex: 1,
+            child: OutlinedButton(
+              onPressed: () {
+                SystemNavigator.pop();
+              },
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.all(16.0),
+                ),
+                foregroundColor:
+                MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
+              ),
+              child: Text('Quit App',
+              style: DiceyTheme.lightTextTheme.titleLarge),
+            ),
+          )
         ],
       ),
     );

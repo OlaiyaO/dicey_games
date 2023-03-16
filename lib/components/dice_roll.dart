@@ -1,3 +1,4 @@
+import 'package:dicey/components/dicey_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:dicey/components/floating_action_button.dart';
 
@@ -18,46 +19,59 @@ class DiceRoll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: Stack(
-              children: [
-                GestureDetector(
-                  onTap: randFunction,
-                  child: Image.asset(diceImageUrl1),
+      child: Container(
+        color: const Color(0xffff00ff),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      onTap: randFunction,
+                      child: Image.asset(diceImageUrl1),
+                    ),
+                    Positioned(
+                      top: 16,
+                      right: 16,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.menu,
+                          color: DiceyTheme.light().primaryColor,
+                          size: 32,
+                        ),
+                        onPressed: () {
+                          openEndDrawer();
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                Positioned(
-                  top: 16,
-                  right: 16,
-                  child: IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {
-                      openEndDrawer();
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-          Expanded(
-            child: Stack(
-              children: [
-                GestureDetector(
-                  child: Image.asset(diceImageUrl2),
-                  onTap: () {
-                    randFunction;
-                  },
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      child: Image.asset(diceImageUrl2),
+                      onTap: () {
+                        randFunction;
+                      },
+                    ),
+                    Positioned(
+                      bottom: 32,
+                      right: 32,
+                      child: FAButton(randomFunction: randFunction),
+                    ),
+                  ],
                 ),
-                Positioned(
-                  bottom: 16,
-                  right: 16,
-                  child: FAButton(randomFunction: randFunction),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

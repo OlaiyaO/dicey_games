@@ -6,7 +6,7 @@ class FAButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.extended(
+    return FloatingActionButton.extended(elevation: 3,
       onPressed: () {
         randomFunction();
       }, label: Row(

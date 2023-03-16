@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:dicey/dice_type/foreplay.dart';
 import 'package:dicey/dice_type/romance.dart';
 import 'package:dicey/dice_type/sex_styles.dart';
@@ -15,9 +13,9 @@ class DiceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(theme: DiceyTheme.light(), initialRoute: '/', routes: {
       '/': (context) => const Home(),
-      '/romance': (context) => const Romance(),
-      '/foreplay': (context) => const Foreplay(),
-      '/sex_styles': (context) => const SexStyles(),
+      Romance.romanceRoute: (context) => const Romance(),
+      Foreplay.foreplayRoute: (context) => const Foreplay(),
+      SexStyles.sexStylesRoute: (context) => const SexStyles(),
     });
   }
 }
