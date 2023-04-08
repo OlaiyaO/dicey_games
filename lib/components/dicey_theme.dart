@@ -27,7 +27,7 @@ class DiceyTheme {
     titleLarge: GoogleFonts.openSans(
       fontSize: 20.0,
       fontWeight: FontWeight.w600,
-      color: const Color(0xffff00ff),
+      color: const Color(0xffffffff),
     ),
   );
 
